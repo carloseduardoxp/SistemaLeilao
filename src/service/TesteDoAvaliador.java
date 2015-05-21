@@ -18,6 +18,9 @@ public class TesteDoAvaliador {
 		
 		//imprime 400
 		System.out.println(leiloeiro.getMaiorLance());
+		
+		//imprime 250
+		System.out.println(leiloeiro.getMenorLance());
 	}
 
 }

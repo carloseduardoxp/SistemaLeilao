@@ -11,6 +11,13 @@ public class Usuario {
 	public String getNome() {
 		return nome;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + "]";
+	}
+	
+	
 	
 	
 

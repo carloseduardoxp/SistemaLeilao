@@ -18,6 +18,12 @@ public class Lance {
 	public Double getValor() {
 		return valor;
 	}
+
+	@Override
+	public String toString() {
+		return "Lance [usuario=" + usuario + ", valor=" + valor + "]";
+	}
+	
 	
 	
 

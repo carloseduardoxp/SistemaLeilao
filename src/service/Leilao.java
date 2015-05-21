@@ -25,6 +25,14 @@ public class Leilao {
 	public List<Lance> getLances() {
 		return lances;
 	}
+
+	@Override
+	public String toString() {
+		return "Leilao [objetoLeiloado=" + objetoLeiloado + ", lances="
+				+ lances + "]";
+	}
+	
+	
 	
 
 }

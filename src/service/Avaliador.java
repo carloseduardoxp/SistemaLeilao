@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import util.LeilaoException;
+
 public class Avaliador {
 	
 	private Double maiorDeTodos = Double.NEGATIVE_INFINITY;
@@ -13,8 +15,11 @@ public class Avaliador {
 	
 	private List<Lance> maioresLances;
 	
-	public void avalia(Leilao leilao) {
-		for (Lance lance: leilao.getLances()) {
+	public void avalia(Leilao leilao) throws LeilaoException {
+		if (leilao.getLances().size() == 0) {
+			throw new LeilaoException("Não existem lances");
+		}
+		for (Lance lance: leilao.getLances ()) {
 			if (lance.getValor() > maiorDeTodos) {
 				maiorDeTodos = lance.getValor();
 			} 

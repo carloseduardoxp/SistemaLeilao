@@ -35,7 +35,7 @@ public class EncerradorDeLeilao {
 		return diasNoIntervalo;
 	}
 	
-	public int getTotalEncerrados() {
+	public int getQuantidadeDeEncerrados() {
 		return total;
 	}
 	

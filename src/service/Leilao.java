@@ -58,6 +58,10 @@ public class Leilao {
 		return lances;
 	}
 
+	public void setData(Calendar data) {
+		this.data = data;
+	}
+
 	@Override
 	public String toString() {
 		return "Leilao [objetoLeiloado=" + objetoLeiloado + ", lances="
@@ -71,5 +75,10 @@ public class Leilao {
 	public void encerra() {
 		encerrado = true;		
 	}
+
+	public Boolean isEncerrado() {
+		return encerrado;
+	}
+
 
 }

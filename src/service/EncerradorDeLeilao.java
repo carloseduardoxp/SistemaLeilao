@@ -1,6 +1,5 @@
 package service;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -28,18 +27,13 @@ public class EncerradorDeLeilao {
 	}
 
 	private boolean comecouSemanaPassada(Leilao leilao) {
-		Calendar fim = Calendar.getInstance();
-		fim.add(Calendar.HOUR, 1);
-		return diasEntre(leilao.getData(),fim) >= 7;
+		return diasEntre(leilao.getData(),Calendar.getInstance()) >= 7;
 	}
 	
-	private int diasEntre(Calendar inicio,Calendar fim) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-		System.out.println(sdf.format(inicio.getTime()));
-		System.out.println(sdf.format(fim.getTime()));
+	private int diasEntre(Calendar inicio,Calendar fim) {		
 		Calendar data = (Calendar)inicio.clone();
 		int diasNoIntervalo = 0;
-		while (data.before(fim)) {
+		while (data.before(fim) || data.equals(fim)) {
 			data.add(Calendar.DAY_OF_MONTH,1);
 			diasNoIntervalo++;
 		}

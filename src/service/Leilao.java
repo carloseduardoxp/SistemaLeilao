@@ -1,5 +1,6 @@
 package service;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -8,10 +9,20 @@ public class Leilao {
 	private String objetoLeiloado;
 	
 	private List<Lance> lances;
+	
+	private Calendar data;
+	
+	private Boolean encerrado;
 
-	public Leilao(String objetoLeiloado) {
+	public Leilao(String objetoLeiloado,Calendar data) {
 		this.objetoLeiloado = objetoLeiloado;
 		this.lances = new ArrayList<Lance>();
+		this.data = data;
+		this.encerrado = false;
+	}
+	
+	public Leilao(String objetoLeiloado) {
+		this(objetoLeiloado,Calendar.getInstance());
 	}
 
 	public String getObjetoLeiloado() {
@@ -51,6 +62,14 @@ public class Leilao {
 	public String toString() {
 		return "Leilao [objetoLeiloado=" + objetoLeiloado + ", lances="
 				+ lances + "]";
+	}
+
+	public Calendar getData() {
+		return data;
+	}
+
+	public void encerra() {
+		encerrado = true;		
 	}
 
 }

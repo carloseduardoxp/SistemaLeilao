@@ -17,7 +17,7 @@ public class Leilao {
 	public Leilao(String objetoLeiloado,Calendar data) {
 		this.objetoLeiloado = objetoLeiloado;
 		this.lances = new ArrayList<Lance>();
-		this.data = data;
+		this.data = data;		
 		this.encerrado = false;
 	}
 	

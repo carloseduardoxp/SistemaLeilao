@@ -1,5 +1,6 @@
 package service;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -9,8 +10,13 @@ public class EncerradorDeLeilao {
 	
 	private int total = 0;
 	
-	public void encerra() {
-		LeilaoDao dao = new LeilaoDao();		
+	private LeilaoDao dao;
+	
+	public EncerradorDeLeilao(LeilaoDao leilaoDao) {
+		this.dao = leilaoDao;
+	}
+	
+	public void encerra() {	
 		List<Leilao> todosLeiloesCorrentes = dao.correntes();		
 		for (Leilao leilao: todosLeiloesCorrentes) {
 			if (comecouSemanaPassada(leilao)) {
@@ -22,10 +28,15 @@ public class EncerradorDeLeilao {
 	}
 
 	private boolean comecouSemanaPassada(Leilao leilao) {
-		return diasEntre(leilao.getData(),Calendar.getInstance()) >= 7;
+		Calendar fim = Calendar.getInstance();
+		fim.add(Calendar.HOUR, 1);
+		return diasEntre(leilao.getData(),fim) >= 7;
 	}
 	
 	private int diasEntre(Calendar inicio,Calendar fim) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		System.out.println(sdf.format(inicio.getTime()));
+		System.out.println(sdf.format(fim.getTime()));
 		Calendar data = (Calendar)inicio.clone();
 		int diasNoIntervalo = 0;
 		while (data.before(fim)) {

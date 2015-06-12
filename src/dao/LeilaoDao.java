@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import service.Leilao;
@@ -7,8 +8,7 @@ import service.Leilao;
 public class LeilaoDao {
 
 	public List<Leilao> correntes() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<Leilao>();
 	}
 
 	public void atualiza(Leilao leilao) {

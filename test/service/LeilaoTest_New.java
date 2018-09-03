@@ -11,7 +11,7 @@ public class LeilaoTest_New {
 	public void deveReceberUmLance() {
 		Leilao leilao = new Leilao("Notibuque Positivo");
 		assertEquals(0,leilao.getLances().size());
-		leilao.propoe(new Lance(new Usuario("Carlos"),2000d));
+		leilao.propoe(new Lance(new Usuario("Carlos"),200d));
 		assertEquals(1, leilao.getLances().size());
 		assertEquals(2000d,leilao.getLances().get(0).getValor(),0.0001);				
 	}
@@ -20,8 +20,8 @@ public class LeilaoTest_New {
 	public void deveReceberVariosLances() {
 		Leilao leilao = new Leilao("Notibuque Positivo");
 		assertEquals(0,leilao.getLances().size());
-		leilao.propoe(new Lance(new Usuario("Carlos"),2000d));
-		leilao.propoe(new Lance(new Usuario("Cléber"),4000d));
+		leilao.propoe(new Lance(new Usuario("Carlos"),200d));
+		leilao.propoe(new Lance(new Usuario("Cléber"),400d));
 		assertEquals(2, leilao.getLances().size());
 		assertEquals(2000d,leilao.getLances().get(0).getValor(),0.0001);				
 		assertEquals(4000d,leilao.getLances().get(1).getValor(),0.0001);
@@ -31,8 +31,8 @@ public class LeilaoTest_New {
 	public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
 		Leilao leilao = new Leilao("Notibuque Positivo");
 		assertEquals(0,leilao.getLances().size());
-		leilao.propoe(new Lance(new Usuario("Carlos"),2000d));
-		leilao.propoe(new Lance(new Usuario("Carlos"),3000d));
+		leilao.propoe(new Lance(new Usuario("Carlos"),200d));
+		leilao.propoe(new Lance(new Usuario("Carlos"),300d));
 		assertEquals(1, leilao.getLances().size());
 		assertEquals(2000d,leilao.getLances().get(0).getValor(),0.0001);				
 	}
